@@ -1,7 +1,6 @@
 :root {
 	--bgColor: #530d63;
-	--fgColor: #920c7c;
-	--fgColorLighter: #5a5d96;
+	--fgColor: #5a5d96;
 	--ColorLightest: #609ebc;
 	--ColorPop: #bf0e84;
 
@@ -34,8 +33,10 @@ main {
 }
 
 #title {
-	font-size: 10vw;
+	font-size: 8vw;
 	margin: 1rem;
+	font-family: "Libre Franklin", sans-serif;
+	letter-spacing: 2vw;
 }
 
 #skills {
@@ -50,26 +51,106 @@ main {
 	background: linear-gradient(180deg, var(--bgColor) 0%, var(--fgColor) 10%, var(--fgColor) 90%, var(--bgColor) 100%);
 	flex-grow: 2;
 	width: 100%;
-	display: flex;
-	align-self: center;
-	justify-content: center;
-	margin: 1rem 0rem;
+	display: grid;
+	margin: 3rem 0rem;
 }
 
 #skills a div {
+	grid-column: 1;
+	grid-row: 1;
 	display: flex;
 	align-self: center;
 	justify-content: center;
 }
 
 h2 {
+	z-index: 3;
 	color: var(--fgColor);
-	background-color: var(--grayOffTheme);
+	background-color: white;
 	border-radius: 25rem;
 	font-size: 5vw;
 	padding: 1.5rem 4rem;
+	font-family: "ubuntu", "san-serif";
+	transition: 0.4s;
 }
 h2:hover {
 	color: var(--textOnTheme);
 	background-color: var(--grayOnTheme);
+}
+
+/*slideshow from https://css-tricks.com/infinite-all-css-scrolling-slideshow/ */
+
+.slideshow {
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	transform: translate3d(0, 0, 0);
+	z-index: 1;
+}
+
+.slideshow:hover {
+	background-color: rgb(65, 65, 65);
+
+	transition: 0.4s;
+}
+
+.slideshow > div {
+	opacity: 0.3;
+	z-index: 1;
+	width: 6662px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	transform: translate3d(0, 0, 0);
+}
+
+.slideshow.devSlide > div {
+	background: url("/images/devScroll.png") repeat-x 0 100%;
+	background-position: 0 -100px;
+}
+
+.slideshow.publicSpeakingSlide > div {
+	background: url("/images/publicSpeakingScroll.png") repeat-x 0 100%;
+	background-position: 0 -100px;
+}
+
+.slideshow .mover {
+	transition: opacity 0.5s ease-out;
+	animation: moveSlideshow 30s linear infinite;
+}
+
+@keyframes moveSlideshow {
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+/* Footer */
+
+footer {
+	display: flex;
+	align-self: center;
+	justify-content: space-evenly;
+	width: 50%;
+	padding: 1rem;
+}
+
+footer a,
+footer a img {
+	transition: 0.4s;
+}
+
+footer a:hover {
+	color: var(--grayOnTheme);
+}
+
+footer a img:hover {
+	filter: invert(70%);
+}
+
+.material-symbols-outlined {
+	font-size: 64px;
 }
