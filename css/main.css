@@ -99,8 +99,7 @@ h2:hover {
 	background-color: var(--grayOnTheme);
 }
 
-/*slideshow from https://css-tricks.com/infinite-all-css-scrolling-slideshow/ */
-
+/*slideshow modified from https://css-tricks.com/infinite-all-css-scrolling-slideshow/ */
 .slideshow {
 	height: 100%;
 	width: 100%;
@@ -128,14 +127,9 @@ h2:hover {
 	transform: translate3d(0, 0, 0);
 }
 
-.slideshow.devSlide > div {
-	background: url("../images/devScroll.png") repeat-x 0 100%;
-	background-position: 0 -100px;
-}
-
 .slideshow.publicSpeakingSlide > div {
 	background: url("../images/publicSpeakingScroll.png") repeat-x 0 100%;
-	background-position: 0 -100px;
+	background-position: 0;
 }
 
 .slideshow .mover {
@@ -174,4 +168,17 @@ footer a img:hover {
 
 .material-symbols-outlined {
 	font-size: 64px;
+}
+
+.square {
+	width: 64px;
+	height: 64px;
+	z-index: 1;
+	position: relative;
+}
+
+.devSlide {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
