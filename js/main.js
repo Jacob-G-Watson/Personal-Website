@@ -35,22 +35,39 @@ function getFileName() {
 	return fileNames[fileNameIndex];
 }
 
+/**
+ * Create the elements to be moved across the screen and trigger the move
+ *
+ */
 async function startTheMove() {
 	var widthOfIcon = 64;
+	var parent = document.getElementsByClassName("devSlide")[0];
+
+	for (let index = 0; index < innerWidth / widthOfIcon; index++) {
+		const div = document.createElement("div");
+		div.classList.add("square");
+		parent.appendChild(div);
+	}
+
 	var elements = document.getElementsByClassName("square");
 
 	for (let index = 0; index < elements.length; index++) {
-		myMove(elements[index], index * widthOfIcon, widthOfIcon);
-		await new Promise((r) => setTimeout(r, 1000));
+		myMove(elements[index], index * widthOfIcon + widthOfIcon, widthOfIcon);
+		await new Promise((r) => setTimeout(r, 400));
 	}
 }
 
+/**
+ * Move one element across the screen with a randomised image
+ *
+ * @param {HTMLElement} element
+ * @param {number} offSetIconWidth
+ * @param {number} widthOfIcon
+ */
 function myMove(element, offSetIconWidth, widthOfIcon) {
-	//todo could css be change to not require the adjustment, when in mobile view there are doubled up icons
-	var topLocation = `${Math.floor(Math.random() * 81) - 40}%`;
-	console.log(offSetIconWidth);
+	var topLocation = `${Math.floor(Math.random() * 76) - 38}%`;
 	var id = null;
-	var pos = -innerWidth / 2 - offSetIconWidth;
+	var pos = 0 - offSetIconWidth;
 	clearInterval(id);
 	id = setInterval(frame, 1);
 
@@ -58,7 +75,7 @@ function myMove(element, offSetIconWidth, widthOfIcon) {
 	element.style.backgroundImage = `url(../images/icons/${getFileName()})`;
 
 	function frame() {
-		if (pos == innerWidth / 2 + offSetIconWidth) {
+		if (pos > innerWidth) {
 			clearInterval(id);
 			myMove(element, offSetIconWidth, widthOfIcon);
 		} else {

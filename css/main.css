@@ -171,8 +171,8 @@ footer a img:hover {
 }
 
 .square {
-	width: 64px;
-	height: 64px;
+	width: 60px;
+	height: 60px;
 	z-index: 1;
 	position: relative;
 }
@@ -181,4 +181,15 @@ footer a img:hover {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
+	display: flex;
+}
+
+.devSlide:hover {
+	background: linear-gradient(
+		180deg,
+		var(--bgColor) 0%,
+		rgb(65, 65, 65) 10%,
+		rgb(65, 65, 65) 90%,
+		var(--bgColor) 100%
+	);
 }
