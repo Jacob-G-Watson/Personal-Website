@@ -52,8 +52,13 @@ async function startTheMove() {
 	var elements = document.getElementsByClassName("square");
 
 	for (let index = 0; index < elements.length; index++) {
-		myMove(elements[index], index * widthOfIcon + widthOfIcon, widthOfIcon);
-		await new Promise((r) => setTimeout(r, 400));
+		elements[index].style.backgroundImage = `url(../images/icons/${getFileName()})`;
+		elements[index].style.left = 0 - index * widthOfIcon - 64 + "px";
+
+		elements[index].style.top = `${Math.floor(Math.random() * 76) - 38}%`;
+
+		myMove(elements[index], index * widthOfIcon + widthOfIcon);
+		await new Promise((r) => setTimeout(r, 1000));
 	}
 }
 
@@ -62,25 +67,25 @@ async function startTheMove() {
  *
  * @param {HTMLElement} element
  * @param {number} offSetIconWidth
- * @param {number} widthOfIcon
  */
-function myMove(element, offSetIconWidth, widthOfIcon) {
-	var topLocation = `${Math.floor(Math.random() * 76) - 38}%`;
-	var id = null;
-	var pos = 0 - offSetIconWidth;
-	clearInterval(id);
-	id = setInterval(frame, 1);
+async function myMove(element, offSetIconWidth) {
+	element.classList.remove("transitionNone");
 
-	element.style.top = topLocation;
+	await new Promise((r) => setTimeout(r, 100));
+	element.style.left = innerWidth + "px";
+
+	await new Promise((r) => setTimeout(r, 5000));
+
+	//reset movement and hide icon
+	element.classList.add("opacityNone");
+	element.classList.add("transitionNone");
 	element.style.backgroundImage = `url(../images/icons/${getFileName()})`;
 
-	function frame() {
-		if (pos > innerWidth) {
-			clearInterval(id);
-			myMove(element, offSetIconWidth, widthOfIcon);
-		} else {
-			pos++;
-			element.style.left = pos + "px";
-		}
-	}
+	//setup for next run
+	element.style.left = 0 - offSetIconWidth + "px";
+	element.classList.remove("opacityNone");
+	element.style.top = `${Math.floor(Math.random() * 76) - 38}%`;
+
+	await new Promise((r) => setTimeout(r, 100));
+	await myMove(element, offSetIconWidth);
 }

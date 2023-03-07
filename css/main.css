@@ -175,9 +175,11 @@ footer a img:hover {
 }
 
 .square {
-	width: 60px;
-	height: 60px;
+	width: 64px;
+	height: 64px;
+	background-repeat: no-repeat;
 	z-index: 1;
+	transition: 5s;
 	position: relative;
 }
 
@@ -196,4 +198,11 @@ footer a img:hover {
 		rgb(65, 65, 65) 90%,
 		var(--bgColor) 100%
 	);
+}
+
+.opacityNone {
+	opacity: 0;
+}
+.transitionNone {
+	transition: 0s;
 }
