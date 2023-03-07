@@ -22,6 +22,10 @@ body {
 
 a {
 	text-decoration: none;
+	color: var(--textOnTheme);
+}
+a:visited {
+	color: var(--textOnTheme);
 }
 
 main {
