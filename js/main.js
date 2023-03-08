@@ -52,7 +52,7 @@ async function startTheMove() {
 	var elements = document.getElementsByClassName("square");
 
 	for (let index = 0; index < elements.length; index++) {
-		elements[index].style.backgroundImage = `url(../images/icons/${getFileName()})`;
+		elements[index].style.backgroundImage = `url(./images/icons/${getFileName()})`;
 		elements[index].style.left = 0 - index * widthOfIcon - 64 + "px";
 
 		elements[index].style.top = `${Math.floor(Math.random() * 76) - 38}%`;
