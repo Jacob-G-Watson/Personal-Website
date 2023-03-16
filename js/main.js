@@ -1,13 +1,25 @@
 // import cssDoodle from "css-doodle.min.js";
 
+/**
+ * Start executing code when window is ready
+ */
 window.onload = function () {
 	Main();
 };
 
+/**
+ * A clear start point to the functionality of this file
+ *
+ */
 function Main() {
-	startTheMove();
+	if (window.location.pathname == "/index.html") startTheMove();
 }
 
+/**
+ * Get a array of file names as strings
+ *
+ * @returns {string[]} An array of file name strings
+ */
 function getFileNames() {
 	//todo dynamically read the file
 	var fileNames = [
@@ -28,6 +40,11 @@ function getFileNames() {
 	return fileNames;
 }
 
+/**
+ * Get a filename of an icon
+ *
+ * @returns {string} A random file name from a hardcoded list of names
+ */
 function getFileName() {
 	var fileNames = getFileNames();
 	//todo this random goes through all of the files before selecting the same one twice
