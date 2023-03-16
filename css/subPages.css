@@ -1,0 +1,63 @@
+:root {
+	--bgColor: #530d63;
+	--fgColor: #5a5d96;
+	--ColorLightest: #609ebc;
+	--ColorPop: #bf0e84;
+
+	--headerBackgroundColor: var(--percentagePurpleColorLighter);
+	--headerTextColor: var(--fgColor);
+	--textOnTheme: #ffffff;
+	--textOffTheme: #000;
+	--grayOnTheme: rgb(75, 75, 75);
+	--grayOffTheme: rgb(150, 150, 150);
+}
+.content {
+	width: 90%;
+	background-color: var(--fgColor);
+	border-radius: 5rem;
+	padding: 1.5rem;
+	box-sizing: border-box;
+}
+
+.intro {
+	text-align: left;
+}
+
+.projects {
+	text-align: left;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.project {
+	padding: 1rem 0;
+	border: solid black 5px;
+	border-radius: 1rem;
+	margin: 1rem;
+	padding: 1rem;
+	box-sizing: border-box;
+}
+
+h1 {
+	text-align: center;
+}
+
+@media screen and (min-width: 900px) {
+	.content {
+		width: 90%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.intro {
+		text-align: left;
+		width: 70%;
+	}
+	.twoProjects {
+		display: flex;
+		align-items: start;
+		justify-content: center;
+	}
+}
