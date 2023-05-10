@@ -85,7 +85,7 @@ main {
 	}
 }
 
-h2 {
+h2.skills {
 	z-index: 3;
 	color: var(--fgColor);
 	background-color: white;
@@ -95,7 +95,7 @@ h2 {
 	transition: 0.4s;
 	width: 50%;
 }
-h2:hover {
+h2:hover.skills {
 	color: var(--textOnTheme);
 	background-color: var(--grayOnTheme);
 }
@@ -121,7 +121,8 @@ header a {
 }
 
 footer a:hover,
-header a:hover {
+header a:hover,
+a:hover {
 	color: var(--grayOnTheme);
 }
 

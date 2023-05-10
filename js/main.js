@@ -12,7 +12,12 @@ window.onload = function () {
  *
  */
 function Main() {
-	if (window.location.pathname == "/index.html") startTheMove();
+	if (
+		window.location.pathname == "/Personal-Website/" ||
+		window.location.pathname == "/Personal-Website/index.html"
+	) {
+		startTheMove();
+	}
 }
 
 /**
